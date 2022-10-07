@@ -5,4 +5,4 @@ services:
     image: ${DOCKER_REGISTRY-}shopping
     build:
       context: .
-      dockerfile: Shopping.Client/Dockerfile
+      dockerfile: Shopping.Client/Dockerfile.Compose
