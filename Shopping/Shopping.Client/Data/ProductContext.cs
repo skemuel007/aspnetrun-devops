@@ -55,7 +55,7 @@ namespace Shopping.Client.Data
                     Price = 240.00M,
                     Category = "Home Kitchen"
                 }
-        }
+        };
     }
 }
 
