@@ -9,13 +9,13 @@ WORKDIR /src
 COPY ["Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
 RUN dotnet restore "Shopping/Shopping.Client/Shopping.Client.csproj"
 COPY . .
-WORKDIR "/src/Shopping.Client"
-RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build
+WORKDIR "/src/Shopping/Shopping.Client"
+RUN dotnet build "Shopping/Shopping.Client.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Shopping.Client.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Shopping/Shopping.Client.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Shopping.Client.dll"]
+ENTRYPOINT ["dotnet", "Shopping/Shopping.Client.dll"]
