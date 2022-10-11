@@ -6,3 +6,6 @@ services:
     build:
       context: .
       dockerfile: Shopping.Client/Dockerfile.Compose
+
+  mongodb:
+    image: mongo
